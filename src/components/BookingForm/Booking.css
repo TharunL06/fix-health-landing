@@ -1,0 +1,91 @@
+.booking-form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.8); 
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.book-heading {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+h2,
+h3 {
+  color: #333;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+div > div {
+  margin-top: 15px;
+}
+
+div > div > label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+div > div > input[type="checkbox"] {
+  margin-left: 5px;
+  order: -1;
+}
+
+body {
+  background: linear-gradient(to right, #e5ac67, #886930);
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}

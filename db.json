@@ -1,0 +1,14 @@
+{
+  "doctors": [
+    { "id": 1, "name": "Dr. Smith", "expertise": "Physiotherapy", "city": "New York" },
+    { "id": 2, "name": "Dr. Johnson", "expertise": "Sports Medicine", "city": "Los Angeles" },
+    { "id": 3, "name": "Dr. Davis", "expertise": "Cardiology", "city": "Chicago" },
+    { "id": 4, "name": "Dr. White", "expertise": "Orthopedics", "city": "New York" },
+    { "id": 5, "name": "Dr. Anderson", "expertise": "Dermatology", "city": "Los Angeles" },
+    { "id": 6, "name": "Dr. Martinez", "expertise": "Pediatrics", "city": "Chicago" },
+    { "id": 7, "name": "Dr. Mitchell", "expertise": "Gastroenterology", "city": "New York" },
+    { "id": 8, "name": "Dr. Turner", "expertise": "Neurology", "city": "Los Angeles" },
+    { "id": 9, "name": "Dr. Bell", "expertise": "Psychiatry", "city": "Chicago" },
+    { "id": 10, "name": "Dr. Parker", "expertise": "Sports Medicine", "city": "New York" }
+  ]
+}

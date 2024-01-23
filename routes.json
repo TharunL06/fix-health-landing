@@ -1,0 +1,4 @@
+{
+    "/doctors": "/doctors",
+    "/doctors/:city": "/doctors?city=:city"
+  }
