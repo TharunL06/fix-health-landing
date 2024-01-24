@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { getDoctorsByCity, getCities } from '../services/apiservices';
-import "../BookingForm/Booking.css"
+import { getDoctorsByCity, getCities, Doctor } from '../services/apiservices';
+import '../BookingForm/Booking.css';
 
 const BookingForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -19,9 +19,7 @@ const BookingForm: React.FC = () => {
 
   const { data: citiesData } = useQuery('cities', getCities);
 
-  const doctorsQuery = useQuery(['doctors', formData.city], () =>
-    getDoctorsByCity(formData.city)
-  );
+  const doctorsQuery = useQuery(['doctors', formData.city], () => getDoctorsByCity(formData.city));
 
   const handleCityChange = (newCity: string) => {
     setFormData({ ...formData, city: newCity });
@@ -32,9 +30,11 @@ const BookingForm: React.FC = () => {
 
   const handleInputChange = (value: string) => {
     setSearchTerm(value);
-    const filtered = citiesData ? citiesData.filter((city: string) =>
-      city.toLowerCase().includes(value.toLowerCase())
-    ):[];
+    const filtered = citiesData
+      ? citiesData.filter((city: string) =>
+          city.toLowerCase().includes(value.toLowerCase())
+        )
+      : [];
     setFilteredCities(filtered);
   };
 
@@ -44,7 +44,7 @@ const BookingForm: React.FC = () => {
 
   return (
     <div className="booking-form-container">
-      <h2 className='book-heading'>Consultation Booking</h2>
+      <h2 className="book-heading">Consultation Booking</h2>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <label>Name:</label>
@@ -78,7 +78,7 @@ const BookingForm: React.FC = () => {
             onChange={(e) => handleInputChange(e.target.value)}
           />
           {filteredCities.length > 0 && (
-            <ul>
+            <ul className="suggestions">
               {filteredCities.map((city: string) => (
                 <li key={city} onClick={() => handleCityChange(city)}>
                   {city}
@@ -123,10 +123,10 @@ const BookingForm: React.FC = () => {
       </form>
       {doctorsQuery.data && (
         <div>
-          <h3>Best Available Doctors :</h3>
+          <h3>Best Available Doctors:</h3>
           <ul>
             {doctorsQuery.data.length > 0 &&
-              doctorsQuery.data.map((doctor: any) => (
+              doctorsQuery.data.map((doctor: Doctor) => (
                 <li key={doctor.id}>
                   {doctor.name} - {doctor.expertise}
                 </li>

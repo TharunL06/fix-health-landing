@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 
 const API_BASE_URL = 'http://localhost:3001';
 
-interface Doctor {
+export interface Doctor {
   id: number;
   name: string;
   expertise: string;
@@ -12,6 +12,7 @@ interface Doctor {
 export const getDoctorsByCity = async (city: string): Promise<Doctor[]> => {
   try {
     const response: AxiosResponse<Doctor[]> = await axios.get(`${API_BASE_URL}/doctors`);
+
     const allDoctors: Doctor[] = response.data;
 
     const filteredDoctors = allDoctors.filter((doctor: Doctor) =>
@@ -20,11 +21,19 @@ export const getDoctorsByCity = async (city: string): Promise<Doctor[]> => {
 
     return filteredDoctors;
   } catch (error) {
-    console.error('Error fetching doctors:', error);
     throw new Error('Error fetching doctors');
   }
 };
 
-export const getCities = (): Promise<string[]> => {
-  return axios.get(`${API_BASE_URL}/cities`);
+export const getCities = async (): Promise<string[]> => {
+  try {
+    const response: AxiosResponse<Doctor[]> = await axios.get(`${API_BASE_URL}/doctors`);
+    console.log(response.data)
+    const cities: string[] = Array.from(new Set(response.data.map((doctor) => doctor.city)));
+    console.log(cities)
+    return cities;
+  } catch (error) {
+    throw new Error('Error fetching cities');
+  }
 };
+
