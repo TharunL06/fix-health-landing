@@ -32,12 +32,15 @@ const BookingForm: React.FC = () => {
     setSearchTerm(value);
     const filtered = citiesData
       ? citiesData.filter((city: string) =>
-          city.toLowerCase().includes(value.toLowerCase())
+          city.toLowerCase().startsWith(value.toLowerCase())
         )
       : [];
+    
     setFilteredCities(filtered);
+    if (filtered.length === 0) {
+      setFilteredCities(['Not Found']);
+    }
   };
-
   const handleFormSubmit = async () => {
     console.log('Filtered Doctors:', doctorsQuery.data);
   };
